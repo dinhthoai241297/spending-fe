@@ -52,6 +52,33 @@ const apiConfig = {
             method: 'DELETE',
             headers: baseHeader
         },
+    },
+    categories: {
+        list: {
+            path: `${apiUrl}/categories`,
+            method: 'GET',
+            headers: baseHeader
+        },
+        create: {
+            path: `${apiUrl}/categories`,
+            method: 'POST',
+            headers: baseHeader
+        },
+        get: {
+            path: `${apiUrl}/categories/:id`,
+            method: 'GET',
+            headers: baseHeader
+        },
+        update: {
+            path: `${apiUrl}/categories/:id`,
+            method: 'PUT',
+            headers: baseHeader
+        },
+        delete: {
+            path: `${apiUrl}/categories/:id`,
+            method: 'DELETE',
+            headers: baseHeader
+        },
     }
 }
 

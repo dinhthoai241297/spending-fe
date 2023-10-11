@@ -3,11 +3,9 @@ import React from 'react';
 
 const BodyWrap = ({ children }) => {
     return (
-        <Box>
-            <Container maxW="7xl">
-                {children}
-            </Container>
-        </Box>
+        <Container maxW="7xl">
+            {children}
+        </Container>
     );
 };
 

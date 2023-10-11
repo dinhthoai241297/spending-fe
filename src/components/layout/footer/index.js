@@ -98,7 +98,7 @@ const Footer = () => {
                     justify={{ base: 'center', md: 'space-between' }}
                     align={{ base: 'center', md: 'center' }}
                 >
-                    <Text>© 2022 Chakra Templates. All rights reserved</Text>
+                    <Text>© 2022 PDT. All rights reserved</Text>
                     <Stack direction={'row'} spacing={6}>
                         <SocialButton label={'Phone'} href={'#'}>
                             <PhoneIcon />

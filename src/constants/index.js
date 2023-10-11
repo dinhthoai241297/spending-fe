@@ -9,3 +9,22 @@ export const storageKeys = Object.freeze({
     USER_REFRESH_TOKEN: `${appName}_user-refresh-token`,
     CHECKOUT_TOKEN: `${appName}_checkout-token`,
 });
+
+export const eTransactionType = {
+    ESTIMATE: 'ESTIMATE',
+    ACTUAL: 'ACTUAL',
+}
+
+export const eTransactionPeriod = {
+    DAY: 'DAY',
+    MONTH: 'MONTH',
+    YEAR: 'YEAR',
+}
+
+export const eMoneyMovement = {
+    IN: 'IN',
+    OUT: 'OUT',
+}
+
+export const DATE_DISPLAY = 'DD/MM/YYYY';
+export const DATE_VALUE = 'YYYY-MM-DD';

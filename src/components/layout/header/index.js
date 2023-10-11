@@ -1,30 +1,35 @@
 'use client'
 
+import { paths } from '@/constants/paths'
 import { CloseIcon, HamburgerIcon } from '@chakra-ui/icons'
 import {
     Avatar, Box, Button, Container, Flex, HStack,
     IconButton, Menu,
     MenuButton, MenuDivider, MenuItem, MenuList, Stack, useColorModeValue, useDisclosure
 } from '@chakra-ui/react'
+import Link from 'next/link'
 
-const Links = ['Dashboard', 'Projects', 'Team']
+const menus = [
+    { name: 'Categories', path: paths.categories },
+    { name: 'Transactions', path: paths.transactions },
+]
 
-const NavLink = (props) => {
-    const { children } = props
+const NavLink = ({ menu }) => {
 
     return (
-        <Box
-            as="a"
-            px={2}
-            py={1}
-            rounded={'md'}
-            _hover={{
-                textDecoration: 'none',
-                bg: useColorModeValue('gray.200', 'gray.700'),
-            }}
-            href={'#'}>
-            {children}
-        </Box>
+        <Link href={menu.path}>
+            <Box
+                px={2}
+                py={1}
+                rounded={'md'}
+                _hover={{
+                    textDecoration: 'none',
+                    bg: useColorModeValue('gray.200', 'gray.700'),
+                }}
+            >
+                {menu.name}
+            </Box>
+        </Link>
     )
 }
 
@@ -43,10 +48,10 @@ const Header = () => {
                         onClick={isOpen ? onClose : onOpen}
                     />
                     <HStack spacing={8} alignItems={'center'}>
-                        <Box>Logo</Box>
+                        <Link href={paths.main}><Box>Logo</Box></Link>
                         <HStack as={'nav'} spacing={4} display={{ base: 'none', md: 'flex' }}>
-                            {Links.map((link) => (
-                                <NavLink key={link}>{link}</NavLink>
+                            {menus.map((menu) => (
+                                <NavLink key={menu.path} menu={menu} />
                             ))}
                         </HStack>
                     </HStack>
@@ -78,8 +83,8 @@ const Header = () => {
                 {isOpen ? (
                     <Box pb={4} display={{ md: 'none' }}>
                         <Stack as={'nav'} spacing={4}>
-                            {Links.map((link) => (
-                                <NavLink key={link}>{link}</NavLink>
+                            {menus.map((menu) => (
+                                <NavLink key={menu.path} menu={menu} />
                             ))}
                         </Stack>
                     </Box>
