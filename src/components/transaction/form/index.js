@@ -3,6 +3,7 @@ import apiConfig from '@/constants/apiConfig';
 import { paths } from '@/constants/paths';
 import useFetch from '@/hooks/useFetch';
 import { Box, Heading } from '@chakra-ui/react';
+import dayjs from 'dayjs';
 import { useRouter, useParams } from 'next/navigation';
 import { useEffect } from 'react';
 import TransactionForm from './transaction-form';
@@ -19,6 +20,8 @@ const TransactionSave = () => {
     const handleSubmit = (values, actions) => {
         const { id, ...restValues } = values;
         const func = id ? executeUpdate : execute;
+        restValues.category = +restValues.category;
+        restValues.amount = +restValues.amount;
         func({
             pathParams: { id },
             data: restValues,

@@ -21,7 +21,7 @@ const CategoryForm = ({ onSubmit, data, isCreate }) => {
         date: '',
         amount: 0,
         note: '',
-        category: '',
+        category: null,
         money_movement: eMoneyMovement.OUT,
         tx_period: eTransactionPeriod.MONTH,
         tx_type: eTransactionType.ACTUAL,
@@ -40,8 +40,9 @@ const CategoryForm = ({ onSubmit, data, isCreate }) => {
     useEffect(() => {
         if (data) {
             formRef.current.setValues({
+                ...initialValues,
                 ...data,
-                date: dayjs(date).format(DATE_VALUE),
+                date: dayjs(data.date).format(DATE_VALUE),
             });
         }
     }, [data]);
@@ -84,7 +85,6 @@ const CategoryForm = ({ onSubmit, data, isCreate }) => {
                     name="money_movement"
                     options={moneyMovementOptions}
                 />
-
 
                 <SelectField
                     label="Kiểu"
