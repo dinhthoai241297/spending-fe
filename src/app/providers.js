@@ -6,7 +6,7 @@ import { ChakraProvider } from '@chakra-ui/react'
 export function Providers({ children }) {
     return (
         <CacheProvider>
-            <ChakraProvider>
+            <ChakraProvider resetCSS>
                 {children}
             </ChakraProvider>
         </CacheProvider>

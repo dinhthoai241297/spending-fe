@@ -19,7 +19,7 @@ const SelectField = ({
                 id={name}
                 placeholder={placeholder}
             >
-                <option disabled selected value> -- select an option -- </option>
+                <option disabled value=""> -- select an option -- </option>
                 {options.map((option, index) => (
                     <option key={index} value={option.value}>{option.label}</option>
                 ))}

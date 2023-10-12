@@ -22,3 +22,7 @@ export const formatNumber = (value, defaultValue) => {
 
     return defaultValue ?? "";
 };
+
+export const getLabel = (options, value) => {
+    return options.find(el => el.value === value)?.label || '';
+}

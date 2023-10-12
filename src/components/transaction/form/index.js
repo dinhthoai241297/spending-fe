@@ -1,14 +1,18 @@
 'use client'
+import { Box, Heading } from '@chakra-ui/react';
+import dayjs from 'dayjs';
+import { useParams, useRouter } from 'next/navigation';
+import { useEffect } from 'react';
+
+import { DATE_VALUE } from '@/constants';
 import apiConfig from '@/constants/apiConfig';
 import { paths } from '@/constants/paths';
 import useFetch from '@/hooks/useFetch';
-import { Box, Heading } from '@chakra-ui/react';
-import dayjs from 'dayjs';
-import { useRouter, useParams } from 'next/navigation';
-import { useEffect } from 'react';
 import TransactionForm from './transaction-form';
+import useMessage from '@/hooks/useMessage';
 
 const TransactionSave = () => {
+    const { showSuccess, showError } = useMessage();
     const { execute } = useFetch(apiConfig.transactions.create);
     const { execute: executeUpdate } = useFetch(apiConfig.transactions.update);
     const { execute: executeGet, data } = useFetch(apiConfig.transactions.get);
@@ -22,17 +26,19 @@ const TransactionSave = () => {
         const func = id ? executeUpdate : execute;
         restValues.category = +restValues.category;
         restValues.amount = +restValues.amount;
+
         func({
             pathParams: { id },
             data: restValues,
             onCompleted: () => {
+                showSuccess('Save transaction success!');
                 push(paths.transactions);
             },
             onError: error => {
+                showError('Save transaction failed!');
                 console.log(error);
             }
         });
-        actions.setSubmitting(false);
     };
 
     useEffect(() => {

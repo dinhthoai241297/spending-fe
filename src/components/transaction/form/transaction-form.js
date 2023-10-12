@@ -15,13 +15,13 @@ const CategoryForm = ({ onSubmit, data, isCreate }) => {
     const formRef = useRef();
     const { categories } = useCategories();
 
-    const categoriesOptions = useMemo(() => (categories || []).map(cat => ({ label: cat.name, value: cat.id })), [ categories ]);
+    const categoriesOptions = useMemo(() => (categories || []).map(cat => ({ label: cat.name, value: cat.id })), [categories]);
 
     const initialValues = {
-        date: '',
-        amount: 0,
+        date: dayjs().format(DATE_VALUE),
+        amount: '',
         note: '',
-        category: null,
+        category: '',
         money_movement: eMoneyMovement.OUT,
         tx_period: eTransactionPeriod.MONTH,
         tx_type: eTransactionType.ACTUAL,
@@ -30,7 +30,7 @@ const CategoryForm = ({ onSubmit, data, isCreate }) => {
     const validationSchema = Yup.object({
         date: Yup.date().required('Date is required'),
         amount: Yup.number().required('Amount is required'),
-        note: Yup.string().required('Note is required'),
+        note: Yup.string(),
         category: Yup.string().required('Category is required'),
         money_movement: Yup.string().required('Money Movement is required'),
         tx_period: Yup.string().required('Transaction Period is required'),
@@ -43,11 +43,10 @@ const CategoryForm = ({ onSubmit, data, isCreate }) => {
                 ...initialValues,
                 ...data,
                 date: dayjs(data.date).format(DATE_VALUE),
+                category: data.category?.id || null,
             });
         }
     }, [data]);
-
-    console.log(formRef.current);
 
     return (
         <Formik
@@ -74,12 +73,6 @@ const CategoryForm = ({ onSubmit, data, isCreate }) => {
                     options={categoriesOptions}
                 />
 
-                <InputTextField
-                    label="Note"
-                    name="note"
-                    type="textarea"
-                />
-
                 <SelectField
                     label="Vào / Ra"
                     name="money_movement"
@@ -96,6 +89,12 @@ const CategoryForm = ({ onSubmit, data, isCreate }) => {
                     label="Kỳ áp dụng"
                     name="tx_period"
                     options={transactionPeriodOptions}
+                />
+
+                <InputTextField
+                    label="Note"
+                    name="note"
+                    type="textarea"
                 />
 
                 <Button type="submit" mt={4} colorScheme="teal">

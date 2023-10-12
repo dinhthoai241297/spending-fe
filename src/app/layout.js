@@ -1,5 +1,3 @@
-import { CSSReset } from '@chakra-ui/react';
-
 import Footer from '@/components/layout/footer';
 import Header from '@/components/layout/header';
 import BodyWrap from '@/components/layout/body-wrap';
@@ -18,7 +16,6 @@ export default function RootLayout({ children }) {
         <html lang="en">
             <body>
                 <Providers>
-                    <CSSReset />
                     <Header />
                     <BodyWrap>{children}</BodyWrap>
                     <Footer />
