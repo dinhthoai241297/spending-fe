@@ -1,0 +1,24 @@
+.custom-pagination {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    align-items: center;
+    list-style: none;
+
+    button {
+        width: 32px;
+        text-align: center;
+        padding: 0;
+        transition: all .3s;
+    }
+
+    [class~="rc-pagination-item-disabled"] button, [class~="rc-pagination-disabled"] button {
+        opacity: 0.4;
+        cursor: not-allowed;
+    }
+
+    [class~="rc-pagination-item-active"] button {
+        background-color: #38a169;
+        color: white;
+    }
+}
