@@ -26,3 +26,16 @@ export const formatNumber = (value, defaultValue) => {
 export const getLabel = (options, value) => {
     return options.find(el => el.value === value)?.label || '';
 }
+
+export const cleanObject = (obj) => {
+    let result = {};
+    if (obj) {
+        Object.keys(obj).forEach((key) => {
+            const fieldValue = obj[key];
+            if ((Array.isArray(fieldValue) && fieldValue.length) || (fieldValue !== 0 && !!fieldValue)) {
+                result[key] = fieldValue;
+            }
+        });
+    }
+    return result;
+};

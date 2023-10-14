@@ -3,20 +3,25 @@ import { useField } from 'formik';
 
 const SelectField = ({
     label,
-    name,
     placeholder,
-    type = 'input',
     options = [],
+    onChange,
+    ...rest
 }) => {
-    const [field, meta] = useField(name);
+    const [field, meta] = useField(rest);
     const isError = meta.touched && meta.error;
+
+    const handleChange = e => {
+        field.onChange(e);
+        onChange?.(e);
+    }
 
     return (
         <FormControl isInvalid={isError}>
             {!!label && <FormLabel>{label}</FormLabel>}
             <Select
                 {...field}
-                id={name}
+                onChange={handleChange}
                 placeholder={placeholder}
             >
                 <option disabled value=""> -- select an option -- </option>

@@ -45,13 +45,13 @@ const CategoryTable = ({ categories, loading, handleDelete }) => {
                             <Td>{category.parent_id || '-'}</Td>
                             <Td>{category.slug}</Td>
                             <Td>
-                                <HStack>
+                                <HStack justifyContent="center">
                                     <Link href={`${paths.categories}/${category.id}`}>
-                                        <Button variant="ghost" size="sm"><AiOutlineEdit /></Button>
+                                        <Button variant="ghost" size="sm"><AiOutlineEdit color="orange" size={18} /></Button>
                                     </Link>
                                     <Popover placement="top">
                                         <PopoverTrigger>
-                                            <Button variant="ghost" size="sm"><AiOutlineDelete /></Button>
+                                            <Button variant="ghost" size="sm"><AiOutlineDelete color="red" size={18} /></Button>
                                         </PopoverTrigger>
                                         <PopoverContent w={220} m="0 16px">
                                             <PopoverArrow />

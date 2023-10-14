@@ -32,7 +32,7 @@ const Categories = () => {
                     Categories
                 </Heading>
                 <Link href={{ pathname: `${paths.categories}/create` }}>
-                    <Button type="submit" colorScheme="teal">
+                    <Button type="submit" colorScheme="green">
                         Add Category
                     </Button>
                 </Link>

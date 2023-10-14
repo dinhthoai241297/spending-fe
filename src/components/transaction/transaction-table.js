@@ -1,7 +1,7 @@
 import { DATE_DISPLAY, eMoneyMovement } from "@/constants";
 import { moneyMovementOptions, transactionPeriodOptions, transactionTypeOptions } from "@/constants/master-data";
 import { paths } from "@/constants/paths";
-import { getLabel } from "@/utils";
+import { formatNumber, getLabel } from "@/utils";
 import {
     Badge,
     Button,
@@ -42,12 +42,12 @@ const TransactionTable = ({ transactions, loading, handleDelete }) => {
                         <Th><Center>Actions</Center></Th>
                     </Tr>
                 </Thead>
-                <Tbody>
+                <Tbody position="relative" h={65}>
                     {transactions.map((transaction) => (
                         <Tr key={transaction.id}>
                             <Td>{transaction.id}</Td>
                             <Td>{dayjs(transaction.date).format(DATE_DISPLAY)}</Td>
-                            <Td>{transaction.amount}</Td>
+                            <Td>{formatNumber(transaction.amount)}</Td>
                             <Td>{transaction.category?.name || '-'}</Td>
                             <Td textAlign="center">
                                 <Badge colorScheme={transaction.money_movement == eMoneyMovement.IN ? 'green' : 'orange'}>
@@ -59,11 +59,11 @@ const TransactionTable = ({ transactions, loading, handleDelete }) => {
                             <Td>
                                 <HStack justifyContent="center">
                                     <Link href={`${paths.transactions}/${transaction.id}`}>
-                                        <Button variant="ghost" size="sm"><AiOutlineEdit /></Button>
+                                        <Button variant="ghost" size="sm"><AiOutlineEdit color="orange" size={18} /></Button>
                                     </Link>
                                     <Popover placement="top">
                                         <PopoverTrigger>
-                                            <Button variant="ghost" size="sm"><AiOutlineDelete /></Button>
+                                            <Button variant="ghost" size="sm"><AiOutlineDelete color="red" size={18} /></Button>
                                         </PopoverTrigger>
                                         <PopoverContent w={220} m="0 16px">
                                             <PopoverArrow />
@@ -85,11 +85,7 @@ const TransactionTable = ({ transactions, loading, handleDelete }) => {
                         </Tr>
                     ))}
                     {loading && (
-                        <Tr>
-                            <Td colSpan={8}>
-                                <Center><Spinner /></Center>
-                            </Td>
-                        </Tr>
+                        <Center position="absolute" w="100%" h="100%" top={0} bg="#ffffffa1" backdropBlur="8px"><Spinner /></Center>
                     )}
                 </Tbody>
             </Table>
