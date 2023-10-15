@@ -26,5 +26,12 @@ export const eMoneyMovement = {
     OUT: 'OUT',
 }
 
+export const eTimeRangeDefault = {
+    TODAY: 'TODAY',
+    LAST_WEEK: 'LAST_WEEK',
+    LAST_MONTH: 'LAST_MONTH',
+    LAST_3_MONTH: 'LAST_3_MONTH',
+}
+
 export const DATE_DISPLAY = 'DD/MM/YYYY';
 export const DATE_VALUE = 'YYYY-MM-DD';

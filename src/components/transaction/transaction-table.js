@@ -85,7 +85,7 @@ const TransactionTable = ({ transactions, loading, handleDelete }) => {
                         </Tr>
                     ))}
                     {loading && (
-                        <Center position="absolute" w="100%" h="100%" top={0} bg="#ffffffa1" backdropBlur="8px"><Spinner /></Center>
+                        <Tr><Td colSpan={8}><Center position="absolute" w="100%" h="100%" top={0} bg="#ffffffa1" backdropBlur="8px"><Spinner /></Center></Td></Tr>
                     )}
                 </Tbody>
             </Table>

@@ -4,6 +4,7 @@ import SelectField from '@/components/common/form/select-field';
 import { DATE_VALUE, eMoneyMovement, eTransactionPeriod, eTransactionType } from '@/constants';
 import { moneyMovementOptions, transactionPeriodOptions, transactionTypeOptions } from '@/constants/master-data';
 import useCategories from '@/hooks/useCategories';
+import { formatNumber } from '@/utils';
 import { Button, VStack } from '@chakra-ui/react';
 import dayjs from 'dayjs';
 import { Form, Formik } from 'formik';
@@ -65,6 +66,7 @@ const CategoryForm = ({ onSubmit, data, isCreate }) => {
                 <InputNumberField
                     label="Amount"
                     name="amount"
+                    format={formatNumber}
                 />
 
                 <SelectField

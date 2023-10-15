@@ -1,22 +1,24 @@
 'use client'
 
-import { Box, Button, Flex, Heading, VStack } from "@chakra-ui/react";
+import { Box, Button, Flex, Heading } from "@chakra-ui/react";
+import dayjs from "dayjs";
 import Link from "next/link";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import qs from "qs";
 import { useEffect, useMemo } from "react";
 
-import { paths } from "@/constants/paths";
-
+import { DATE_VALUE } from "@/constants";
 import apiConfig from "@/constants/apiConfig";
+import { paths } from "@/constants/paths";
 import useFetch from "@/hooks/useFetch";
 import useMessage from "@/hooks/useMessage";
-import Pagination from "../common/pagination";
-import TransactionTable from "./transaction-table";
-import TransactionFilter from "./filter";
 import { cleanObject } from "@/utils";
 
-const pageSize = 12;
+import Pagination from "../common/pagination";
+import TransactionFilter from "./filter";
+import TransactionTable from "./transaction-table";
+
+const pageSize = 20;
 
 const Transactions = () => {
     const { showSuccess } = useMessage();
@@ -32,11 +34,31 @@ const Transactions = () => {
         return { page: +page, size, ...rest };
     }, [params]);
 
+    const mapTimeRangeToFilterDate = (timeRange) => {
+        if (!timeRange) {
+            return {};
+        }
+
+        const currentDate = dayjs();
+        const mapper = {
+            TODAY: currentDate.format(DATE_VALUE),
+            LAST_WEEK: currentDate.subtract(7, 'd').format(DATE_VALUE),
+            LAST_MONTH: currentDate.subtract(1, 'M').format(DATE_VALUE),
+            LAST_3_MONTH: currentDate.subtract(3, 'M').format(DATE_VALUE),
+        }
+
+        return {
+            start_date: mapper[timeRange]
+        };
+    }
+
     const getTransactions = () => {
-        const { page, ...rest } = filter;
+        const { page, time_range, ...rest } = filter;
+        const filterDate = mapTimeRangeToFilterDate(time_range);
         execute(cleanObject({
             params: {
                 page: +page - 1,
+                ...filterDate,
                 ...rest
             }
         }));

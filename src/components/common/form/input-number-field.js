@@ -5,19 +5,28 @@ const InputNumberField = ({
     label,
     name,
     placeholder,
+    format,
 }) => {
     const [field, meta] = useField(name);
     const isError = meta.touched && meta.error;
+
+    const handleChange = e => {
+        if (format) {
+            e.target.value = e.target.value.replace(/\$\s?|(,*)/g, '')
+        }
+        field.onChange(e);
+    }
 
     return (
         <FormControl isInvalid={isError}>
             {!!label && <FormLabel>{label}</FormLabel>}
             <NumberInput
-                {...field}
                 id={name}
+                value={field.value}
+                format={format}
                 placeholder={placeholder}
             >
-                <NumberInputField onChange={field.onChange} />
+                <NumberInputField onChange={handleChange} />
             </NumberInput>
             <FormErrorMessage>{meta.error}</FormErrorMessage>
         </FormControl>

@@ -9,19 +9,23 @@ export const delayResult = async (func, time) => new Promise(async (res, reject)
     }
 });
 
-export const formatNumber = (value, defaultValue) => {
+export const formatNumber = (value) => {
+    if (value === 0) {
+        return 0;
+    }
+
     if (value) {
-        const decimalPosition = value.toString().indexOf(".");
+        const decimalPosition = value.toString().indexOf('.');
         if (decimalPosition > 0) {
             const intVal = value.toString().substring(0, decimalPosition);
             const decimalVal = value.toString().substring(decimalPosition + 1);
-            return `${intVal.replace(/\B(?=(\d{3})+(?!\d))/g, ",")}.${decimalVal}`;
+            return `${intVal.replace(/\B(?=(\d{3})+(?!\d))/g, ',')}.${decimalVal}`;
         }
-        return value.toString().padStart(2, '0').replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+        return value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
     }
 
-    return defaultValue ?? "";
-};
+    return '';
+}
 
 export const getLabel = (options, value) => {
     return options.find(el => el.value === value)?.label || '';

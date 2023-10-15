@@ -1,4 +1,4 @@
-import { moneyMovementOptions, transactionPeriodOptions, transactionTypeOptions } from '@/constants/master-data';
+import { moneyMovementOptions, timeRangeOptions, transactionPeriodOptions, transactionTypeOptions } from '@/constants/master-data';
 import useCategories from '@/hooks/useCategories';
 import { Button, Flex, SimpleGrid } from '@chakra-ui/react';
 import { Formik } from 'formik';
@@ -11,6 +11,7 @@ const emptyForm = Object.freeze({
     money_movement: '',
     tx_type: '',
     tx_period: '',
+    time_range: '',
 });
 
 const TransactionFilter = ({
@@ -68,6 +69,12 @@ const TransactionFilter = ({
                         onChange={handleFilterChange('tx_period')}
                     />
 
+                    <SelectField
+                        label="Thời gian"
+                        name="time_range"
+                        options={timeRangeOptions}
+                        onChange={handleFilterChange('time_range')}
+                    />
                 </SimpleGrid>
                 <Button ml="auto" onClick={handleReset}>Reset</Button>
             </Flex>

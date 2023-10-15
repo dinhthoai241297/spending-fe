@@ -24,7 +24,7 @@ const SelectField = ({
                 onChange={handleChange}
                 placeholder={placeholder}
             >
-                <option disabled value=""> -- select an option -- </option>
+                <option value=""> -- select</option>
                 {options.map((option, index) => (
                     <option key={index} value={option.value}>{option.label}</option>
                 ))}
