@@ -9,6 +9,8 @@ import {
 } from '@chakra-ui/react'
 import Link from 'next/link'
 
+import { MdOutlineSavings } from "react-icons/md";
+
 const menus = [
     { name: 'Categories', path: paths.categories },
     { name: 'Transactions', path: paths.transactions },
@@ -47,8 +49,8 @@ const Header = () => {
                         display={{ md: 'none' }}
                         onClick={isOpen ? onClose : onOpen}
                     />
-                    <HStack spacing={8} alignItems={'center'}>
-                        <Link href={paths.main}><Box>Logo</Box></Link>
+                    <HStack spacing={4} alignItems={'center'}>
+                        <Link href={paths.main}><Box><MdOutlineSavings size={24} color="#38A169" /></Box></Link>
                         <HStack as={'nav'} spacing={4} display={{ base: 'none', md: 'flex' }}>
                             {menus.map((menu) => (
                                 <NavLink key={menu.path} menu={menu} />
@@ -65,9 +67,7 @@ const Header = () => {
                                 minW={0}>
                                 <Avatar
                                     size={'sm'}
-                                    src={
-                                        'https://images.unsplash.com/photo-1493666438817-866a91353ca9?ixlib=rb-0.3.5&q=80&fm=jpg&crop=faces&fit=crop&h=200&w=200&s=b616b2c5b373a80ffc9636ba24f7a4a9'
-                                    }
+                                    src="/images/poro.png"
                                 />
                             </MenuButton>
                             <MenuList>
