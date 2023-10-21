@@ -1381,4 +1381,226 @@ const datas = [
     }
 ]
 
+const genders = [
+    { label: 'Nữ', value: 'Nữ' },
+    { label: 'Nam', value: 'Nam' },
+    { label: 'Không xác định', value: 'Không xác định' },
+]
+
+const positions = [
+    {
+        "label": "Đấu sĩ, Sát thủ",
+        "value": "Đấu sĩ, Sát thủ"
+    },
+    {
+        "label": "Pháp sư",
+        "value": "Pháp sư"
+    },
+    {
+        "label": "Trợ thủ",
+        "value": "Trợ thủ"
+    },
+    {
+        "label": "Đấu sĩ",
+        "value": "Đấu sĩ"
+    },
+    {
+        "label": "Pháp sư, Trợ thủ",
+        "value": "Pháp sư, Trợ thủ"
+    },
+    {
+        "label": "Sát thủ",
+        "value": "Sát thủ"
+    },
+    {
+        "label": "Đấu sĩ, Đỡ đòn",
+        "value": "Đấu sĩ, Đỡ đòn"
+    },
+    {
+        "label": "Đỡ đòn, Trợ thủ",
+        "value": "Đỡ đòn, Trợ thủ"
+    },
+    {
+        "label": "Đỡ đòn",
+        "value": "Đỡ đòn"
+    },
+    {
+        "label": "Xạ thủ",
+        "value": "Xạ thủ"
+    },
+    {
+        "label": "Sát thủ, Pháp sư",
+        "value": "Sát thủ, Pháp sư"
+    }
+]
+
+const skillUses = [
+    {
+        "label": "Không",
+        "value": "Không"
+    },
+    {
+        "label": "Mana",
+        "value": "Mana"
+    },
+    {
+        "label": "Nội năng",
+        "value": "Nội năng"
+    },
+    {
+        "label": "Máu",
+        "value": "Máu"
+    }
+]
+
+const areas = [
+    {
+        "label": "Đảo Sương Mù",
+        "value": "Đảo Sương Mù"
+    },
+    {
+        "label": "Vực Hỗn Mang",
+        "value": "Vực Hỗn Mang"
+    },
+    {
+        "label": "Norman",
+        "value": "Norman"
+    },
+    {
+        "label": "Tân Liên Hiệp",
+        "value": "Tân Liên Hiệp"
+    },
+    {
+        "label": "Học Viện Carano",
+        "value": "Học Viện Carano"
+    },
+    {
+        "label": "Vương Quốc Okka",
+        "value": "Vương Quốc Okka"
+    },
+    {
+        "label": "Rừng Nguyên Sinh",
+        "value": "Rừng Nguyên Sinh"
+    },
+    {
+        "label": "Helios",
+        "value": "Helios"
+    },
+    {
+        "label": "Tháp Quang Minh",
+        "value": "Tháp Quang Minh"
+    },
+    {
+        "label": "Chưa rõ",
+        "value": "Chưa rõ"
+    },
+    {
+        "label": "Vương Quốc Rồng",
+        "value": "Vương Quốc Rồng"
+    }
+]
+
+const years = [
+    {
+        "label": "2016",
+        "value": "2016"
+    },
+    {
+        "label": "2017",
+        "value": "2017"
+    },
+    {
+        "label": "2018",
+        "value": "2018"
+    },
+    {
+        "label": "2019",
+        "value": "2019"
+    },
+    {
+        "label": "2020",
+        "value": "2020"
+    },
+    {
+        "label": "2021",
+        "value": "2021"
+    },
+    {
+        "label": "2022",
+        "value": "2022"
+    },
+    {
+        "label": "2023",
+        "value": "2023"
+    },
+]
+
+const skinCounts = [
+    {
+        "label": "1",
+        "value": "1"
+    },
+    {
+        "label": "2",
+        "value": "2"
+    },
+    {
+        "label": "3",
+        "value": "3"
+    },
+    {
+        "label": "4",
+        "value": "4"
+    },
+    {
+        "label": "5",
+        "value": "5"
+    },
+    {
+        "label": "6",
+        "value": "6"
+    },
+    {
+        "label": "7",
+        "value": "7"
+    },
+    {
+        "label": "8",
+        "value": "8"
+    },
+    {
+        "label": "9",
+        "value": "9"
+    },
+    {
+        "label": "10",
+        "value": "10"
+    },
+    {
+        "label": "11",
+        "value": "11"
+    },
+    {
+        "label": "12",
+        "value": "12"
+    },
+    {
+        "label": "13",
+        "value": "13"
+    },
+    {
+        "label": "14",
+        "value": "14"
+    },
+    {
+        "label": "15",
+        "value": "15"
+    },
+    {
+        "label": "17",
+        "value": "17"
+    },
+]
+
 export default datas;
+export { genders, positions, skillUses, areas, years, skinCounts };
