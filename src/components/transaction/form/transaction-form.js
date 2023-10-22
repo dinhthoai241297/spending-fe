@@ -67,6 +67,7 @@ const CategoryForm = ({ onSubmit, data, isCreate }) => {
                     label="Amount"
                     name="amount"
                     format={formatNumber}
+                    pattern="*"
                 />
 
                 <SelectField

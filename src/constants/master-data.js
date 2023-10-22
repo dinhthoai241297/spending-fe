@@ -22,3 +22,9 @@ export const timeRangeOptions = [
     { label: '1 tháng trước', value: eTimeRangeDefault.LAST_MONTH },
     { label: '3 tháng trước', value: eTimeRangeDefault.LAST_3_MONTH },
 ]
+
+export const timeRangeSummaryOptions = [
+    { label: 'Hôm nay', value: eTimeRangeDefault.TODAY },
+    { label: 'Tuần này', value: eTimeRangeDefault.THIS_WEEK },
+    { label: 'Tháng này', value: eTimeRangeDefault.THIS_MONTH },
+]

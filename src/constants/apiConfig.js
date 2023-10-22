@@ -52,6 +52,11 @@ const apiConfig = {
             method: 'DELETE',
             headers: baseHeader
         },
+        summary: {
+            path: `${apiUrl}/transactions/summary-amount`,
+            method: 'GET',
+            headers: baseHeader
+        },
     },
     categories: {
         list: {

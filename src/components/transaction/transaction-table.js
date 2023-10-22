@@ -61,19 +61,19 @@ const TransactionTable = ({ transactions, loading, handleDelete }) => {
                                     <Link href={`${paths.transactions}/${transaction.id}`}>
                                         <Button variant="ghost" size="sm"><AiOutlineEdit color="orange" size={18} /></Button>
                                     </Link>
-                                    <Popover placement="top">
+                                    <Popover placement="left">
                                         <PopoverTrigger>
                                             <Button variant="ghost" size="sm"><AiOutlineDelete color="red" size={18} /></Button>
                                         </PopoverTrigger>
-                                        <PopoverContent w={220} m="0 16px">
+                                        <PopoverContent w="auto" m="0 16px">
                                             <PopoverArrow />
-                                            <PopoverCloseButton />
-                                            <PopoverHeader>Delete transaction?</PopoverHeader>
                                             <PopoverBody textAlign="right">
+                                                Delete transaction?
                                                 <Button
                                                     size="sm"
                                                     colorScheme="red"
                                                     onClick={() => handleDelete(transaction.id)}
+                                                    ml={2}
                                                 >
                                                     Delete
                                                 </Button>
@@ -85,7 +85,20 @@ const TransactionTable = ({ transactions, loading, handleDelete }) => {
                         </Tr>
                     ))}
                     {loading && (
-                        <Tr><Td colSpan={8}><Center position="absolute" w="100%" h="100%" top={0} bg="#ffffffa1" backdropBlur="8px"><Spinner /></Center></Td></Tr>
+                        <Tr>
+                            <Td colSpan={8} p={0}>
+                                <Center
+                                    position="absolute"
+                                    w="100%"
+                                    h="100%"
+                                    top={0}
+                                    bg="#ffffffa1"
+                                    backdropBlur="8px"
+                                >
+                                    <Spinner />
+                                </Center>
+                            </Td>
+                        </Tr>
                     )}
                 </Tbody>
             </Table>

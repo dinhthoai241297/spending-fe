@@ -6,6 +6,7 @@ const InputNumberField = ({
     name,
     placeholder,
     format,
+    pattern,
 }) => {
     const [field, meta] = useField(name);
     const isError = meta.touched && meta.error;
@@ -25,6 +26,7 @@ const InputNumberField = ({
                 value={field.value}
                 format={format}
                 placeholder={placeholder}
+                pattern={pattern}
             >
                 <NumberInputField onChange={handleChange} />
             </NumberInput>

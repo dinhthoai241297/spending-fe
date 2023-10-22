@@ -31,6 +31,8 @@ export const eTimeRangeDefault = {
     LAST_WEEK: 'LAST_WEEK',
     LAST_MONTH: 'LAST_MONTH',
     LAST_3_MONTH: 'LAST_3_MONTH',
+    THIS_WEEK: 'THIS_WEEK',
+    THIS_MONTH: 'THIS_MONTH',
 }
 
 export const DATE_DISPLAY = 'DD/MM/YYYY';
