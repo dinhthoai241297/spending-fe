@@ -15,6 +15,8 @@ const Categories = () => {
     const { categories = [], loading, execute } = useCategories();
     const { execute: executeDelete } = useFetch(apiConfig.categories.delete);
 
+    console.log({ categories });
+
     const handleDelete = id => {
         executeDelete({
             pathParams: { id },
