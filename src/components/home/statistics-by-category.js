@@ -3,7 +3,6 @@ import { Chart as ChartJS, ArcElement, Tooltip, Legend } from 'chart.js';
 import ChartDataLabels from 'chartjs-plugin-datalabels';
 import { Pie } from 'react-chartjs-2';
 import { eMoneyMovement, eTransactionType } from '@/constants';
-import { Box } from '@chakra-ui/react';
 import { formatNumber } from '@/utils';
 
 ChartJS.register(ArcElement, Tooltip, Legend, ChartDataLabels);
